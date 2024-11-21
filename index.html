@@ -5,25 +5,55 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rentrix - The Rental Expert</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#1F1717',
+                    },
+                },
+            },
+        };
+    </script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.1/aos.css">
 </head>
 <body class="text-gray-800">
 
     <!-- Header -->
-    <header class="bg-[#350e05] text-white sticky top-0 z-50">
+    <header class="bg-primary text-white sticky top-0 z-50">
         <div class="container mx-auto flex justify-between items-center py-4 px-6">
             <h1 class="text-lg font-bold">Rentrix</h1>
-            <nav>
-                <ul class="flex space-x-6">
+
+            <!-- Hamburger Menu -->
+            <button id="menu-btn" class="block md:hidden focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16m-7 6h7"></path>
+                </svg>
+            </button>
+
+            <!-- Navigation Links -->
+            <nav id="menu" class="hidden md:flex md:space-x-6">
+                <ul class="flex flex-col md:flex-row md:space-x-6">
                     <li><a href="#home" class="hover:underline">Home</a></li>
                     <li><a href="#features" class="hover:underline">Features</a></li>
                     <li><a href="#pricing" class="hover:underline">Pricing</a></li>
                     <li><a href="#contact" class="hover:underline">Contact</a></li>
                 </ul>
             </nav>
-            <a href="#contact" class="bg-white text-[#350e05] px-4 py-2 rounded font-semibold hover:bg-gray-300">
+            <a href="#contact" class="hidden md:block bg-white text-primary px-4 py-2 rounded font-semibold hover:bg-gray-300">
                 Request a Demo
             </a>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-primary text-white">
+            <ul class="flex flex-col items-center space-y-4 py-4">
+                <li><a href="#home" class="hover:underline">Home</a></li>
+                <li><a href="#features" class="hover:underline">Features</a></li>
+                <li><a href="#pricing" class="hover:underline">Pricing</a></li>
+                <li><a href="#contact" class="hover:underline">Contact</a></li>
+            </ul>
         </div>
     </header>
 
@@ -32,7 +62,7 @@
         <div class="container mx-auto px-6">
             <h2 class="text-2xl font-bold mb-4">Rentrix, The Rental Expert</h2>
             <p class="mb-6">Streamline your wedding rental business with smart tools for inventory, customer management, and more.</p>
-            <a href="#contact" class="bg-[#350e05] text-white px-6 py-2 rounded hover:bg-gray-600">
+            <a href="#contact" class="bg-primary text-white px-6 py-2 rounded hover:bg-gray-600">
                 Request a Demo
             </a>
         </div>
@@ -42,28 +72,28 @@
     <section id="features" class="py-20">
         <div class="container mx-auto px-6">
             <h2 class="text-center text-2xl font-bold mb-10">Features</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="p-6 border rounded shadow" data-aos="fade-up">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                <div class="p-4 border rounded shadow" data-aos="fade-up">
                     <h3 class="font-bold mb-2">Rentals Tracking</h3>
                     <p>Easily track and manage your rentals in one place.</p>
                 </div>
-                <div class="p-6 border rounded shadow" data-aos="fade-up">
+                <div class="p-4 border rounded shadow" data-aos="fade-up">
                     <h3 class="font-bold mb-2">Customer Management</h3>
                     <p>Maintain detailed customer profiles for better service.</p>
                 </div>
-                <div class="p-6 border rounded shadow" data-aos="fade-up">
+                <div class="p-4 border rounded shadow" data-aos="fade-up">
                     <h3 class="font-bold mb-2">Invoice Generation</h3>
                     <p>Create professional invoices with a few clicks.</p>
                 </div>
-                <div class="p-6 border rounded shadow" data-aos="fade-up">
+                <div class="p-4 border rounded shadow" data-aos="fade-up">
                     <h3 class="font-bold mb-2">WhatsApp Integration</h3>
                     <p>Stay connected with your clients via WhatsApp.</p>
                 </div>
-                <div class="p-6 border rounded shadow" data-aos="fade-up">
+                <div class="p-4 border rounded shadow" data-aos="fade-up">
                     <h3 class="font-bold mb-2">Accounts Management</h3>
                     <p>Manage your accounts efficiently with built-in tools.</p>
                 </div>
-                <div class="p-6 border rounded shadow" data-aos="fade-up">
+                <div class="p-4 border rounded shadow" data-aos="fade-up">
                     <h3 class="font-bold mb-2">Reports & Analytics</h3>
                     <p>Gain insights with detailed reports and analytics tools.</p>
                 </div>
@@ -71,45 +101,8 @@
         </div>
     </section>
 
-    <!-- Pricing Section -->
-    <section id="pricing" class="bg-gray-100 py-20">
-        <div class="container mx-auto px-6">
-            <h2 class="text-center text-2xl font-bold mb-10">Pricing</h2>
-            <p class="text-center mb-6">Choose the plan that fits your needs.</p>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <div class="p-6 border rounded shadow text-center" data-aos="fade-up">
-                    <h3 class="font-bold mb-2">Basic</h3>
-                    <p>Perfect for small businesses.</p>
-                </div>
-                <div class="p-6 border rounded shadow text-center" data-aos="fade-up">
-                    <h3 class="font-bold mb-2">Standard</h3>
-                    <p>Ideal for growing businesses.</p>
-                </div>
-                <div class="p-6 border rounded shadow text-center" data-aos="fade-up">
-                    <h3 class="font-bold mb-2">Premium</h3>
-                    <p>Best for large-scale operations.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="py-20">
-        <div class="container mx-auto px-6">
-            <h2 class="text-center text-2xl font-bold mb-10">Request a Demo</h2>
-            <form class="max-w-md mx-auto space-y-4">
-                <input type="text" placeholder="Your Name" required class="w-full px-4 py-2 border rounded focus:outline-[#350e05]">
-                <input type="email" placeholder="Your Email" required class="w-full px-4 py-2 border rounded focus:outline-[#350e05]">
-                <textarea placeholder="Your Message" required class="w-full px-4 py-2 border rounded focus:outline-[#350e05]"></textarea>
-                <button type="submit" class="w-full bg-[#350e05] text-white px-4 py-2 rounded hover:bg-gray-600">
-                    Submit
-                </button>
-            </form>
-        </div>
-    </section>
-
     <!-- Footer -->
-    <footer class="bg-[#350e05] text-white text-center py-4">
+    <footer class="bg-primary text-white text-center py-4">
         <p>&copy; 2024 Rentrix. All rights reserved.</p>
     </footer>
 
@@ -117,6 +110,14 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.1/aos.js"></script>
     <script>
         AOS.init();
+
+        // Toggle Mobile Menu
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
     </script>
 </body>
 </html>
